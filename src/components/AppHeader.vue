@@ -3,7 +3,7 @@
   Barre d'application plate
     * flat supprime l'ombre sous la barre
   -->
-  <v-app-bar flat>
+  <v-app-bar flat> <!-- ceci est la barre qui continet tous les mini logos pr changer de page  -->
     <!--
     Conteneur de la barre d'application
       * class="d-flex align-start align-center" aligne les éléments de manière flexible, alignés en haut et centrés verticalement
@@ -53,6 +53,9 @@
   */
   const menuItems = [
     { title: 'Accueil', path: '/', icon: 'mdi-pokeball' },
+    { title: 'Favoris', path: '/Favoris', icon: 'mdi-heart' },
+    { title: 'KantoMap', path: '/KantoMap', icon: 'mdi-map' },
+    { title: 'FAQ', path: '/FAQ', icon: 'mdi-help' },
     // Ajouter ici les autres liens du menu.
     // Vous trouverez des icônes sur https://pictogrammers.com/library/mdi/
     // N'oubliez pas d'ajouter le préfixe 'mdi-' devant le nom de l'icône.
