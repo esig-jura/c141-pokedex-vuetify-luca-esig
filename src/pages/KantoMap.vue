@@ -13,7 +13,8 @@
           v-bind="props"
           alt="Carte Pokémon"
           class="rounded mb-6"
-          max-width="1600"
+
+          max-width="1500"
           src="/images/pokemon-map.png"
         />
       </template>

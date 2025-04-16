@@ -5,7 +5,7 @@
 <template>
 
   <v-container>
-    <h1> Mes pokémons favoris</h1>
+    <h1 class="mb-6 text-center"> Mes pokémons favoris</h1>
   </v-container>
 
 </template>
