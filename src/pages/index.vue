@@ -37,7 +37,8 @@
           <v-card-actions>
             <v-btn
               color="red"
-              icon="mdi-heart-outline"
+              :icon=" pokemonStore.isFavorite(pokemon) ? 'mdi-heart':'mdi-heart-outline' "
+              @click="pokemonStore.toggleFavorite(pokemon)"
             />
           </v-card-actions>
         </v-card>
@@ -56,3 +57,10 @@
   const pokemonStore = usePokemonStore()
 
 </script>
+
+<style>
+.mdi-heart{
+  animation: heartbeat 1s ease-in-out;
+}
+
+</style>
