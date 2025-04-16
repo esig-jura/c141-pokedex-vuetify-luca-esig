@@ -11,8 +11,8 @@
     <v-row>
       <!-- Exemple de colonne vide (à dupliquer plus tard avec du contenu) -->
       <v-col
-        v-for="i in 20"
-        :key="i"
+        v-for="pokemon in pokemonStore.pokemons"
+        :key="pokemon.id"
         cols="12"
         lg="3"
         md="4"
@@ -23,15 +23,15 @@
           <v-img
             alt="Magicarpe"
             height="200px"
-            src="/images/magicarpe.png"
-          />
+            :src="`/images/${pokemon.img}`"
+          />  <!-- les : servent a rendre dynamique et ca devient du js une des solutions = "'/images/'+ pokemon.img"  -->
 
           <v-card-title>
-            Pokémont {{ i }}
+            {{ pokemon.name }}
           </v-card-title>
 
           <v-card-subtitle>
-            Niveau: {{ i }}
+            {{ pokemon.level }}
           </v-card-subtitle>
 
           <v-card-actions>
@@ -48,4 +48,11 @@
 
 <script setup>
 // Vos scripts ou imports ici
+
+// récupérer le magasin des pokémons
+
+  import { usePokemonStore } from '@/stores/pokemonStore'
+
+  const pokemonStore = usePokemonStore()
+
 </script>
