@@ -19,30 +19,9 @@
         sm="6"
         xl="2"
       >
-        <v-card>
-          <v-img
-            alt="Magicarpe"
-            height="200px"
-            :src="`/images/${pokemon.img}`"
-          />  <!-- les : servent a rendre dynamique et ca devient du js une des solutions = "'/images/'+ pokemon.img"  -->
-
-          <v-card-title>
-            {{ pokemon.name }}
-          </v-card-title>
-
-          <v-card-subtitle>
-            {{ pokemon.level }}
-          </v-card-subtitle>
-
-          <v-card-actions>
-            <v-btn
-              color="red"
-              :icon=" pokemonStore.isFavorite(pokemon) ? 'mdi-heart':'mdi-heart-outline' "
-              @click="pokemonStore.toggleFavorite(pokemon)"
-            />
-          </v-card-actions>
-        </v-card>
+        <PokemonCard :pokemon="pokemon" />  <!-- reprends la v card  qu il faut importer dans le scirpt -->
       </v-col>
+
     </v-row>
   </v-container>
 </template>
@@ -53,6 +32,7 @@
 // récupérer le magasin des pokémons
 
   import { usePokemonStore } from '@/stores/pokemonStore'
+  import PokemonCard from '@/components/PokemonCard.vue'
 
   const pokemonStore = usePokemonStore()
 
