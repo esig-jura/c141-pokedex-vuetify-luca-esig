@@ -3,14 +3,19 @@
     <h1 class="mb-6 text-center">Pokédex</h1>
 
     <!-- Menu déroulant pour choisir l'ordre de tri -->
-    <v-select
-      v-model="sortDirection"
-      class="mb-4"
-      dense
-      :items="['A → Z', 'Z → A']"
-      label="Ordre alphabétique"
-      outlined
-    />
+    <!-- Ligne contenant uniquement le menu de tri -->
+    <v-row class="mb-2" justify="end">
+      <v-col cols="auto">
+        <v-select
+          v-model="sortDirection"
+          dense
+          :items="['A → Z', 'Z → A']"
+          label="Tri"
+          outlined
+          style="max-width: 150px;"
+        />
+      </v-col>
+    </v-row>
 
     <v-text-field
       v-model="search"
