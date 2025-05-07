@@ -2,6 +2,16 @@
   <v-container>
     <h1 class="mb-6 text-center">Pokédex</h1>
 
+    <!-- Menu déroulant pour choisir l'ordre de tri -->
+    <v-select
+      v-model="sortDirection"
+      class="mb-4"
+      dense
+      :items="['A → Z', 'Z → A']"
+      label="Ordre alphabétique"
+      outlined
+    />
+
     <v-text-field
       v-model="search"
       clearable
@@ -47,10 +57,26 @@
   // recherche dynamique
   const filteredPokemons = computed(() => {
     const query = search.value.toLowerCase().trim()
-    return pokemonStore.pokemons.filter(pokemon =>
+    return sortedPokemons.value.filter(pokemon =>
       pokemon.name.toLowerCase().includes(query)
     )
   })
+  const sortedPokemons = computed(() => {
+    return [...pokemonStore.pokemons].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    )
+  })
+
+  const sortDirection = ref('A → Z') // correspond exactement à ce qui est affiché
+
+  const sortedPokemonsZA = computed(() => {
+    return [...pokemonStore.pokemons].sort((a, b) =>
+      sortDirection.value === 'A → Z'
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name)
+    )
+  })
+
 </script>
 
 <style>
