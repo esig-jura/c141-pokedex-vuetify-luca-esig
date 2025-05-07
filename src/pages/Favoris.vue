@@ -7,7 +7,9 @@
 </script>
 
 <template>
-
+  <h1 class="mb-6 text-center">
+    Mes Pokémons Favoris ({{ favoris.length }})
+  </h1>
   <!-- <v-container>
     <h1 class="mb-6 text-center"> Mes pokémons favoris</h1>
   </v-container> -->
