@@ -3,6 +3,7 @@
     <h1 class="mb-6 text-center">Pokédex</h1>
 
     <v-text-field
+      v-model="search"
       clearable
       label="Rechercher un Pokémon"
       prepend-icon="mdi-magnify"
@@ -30,12 +31,19 @@
 // Vos scripts ou imports ici
 
 // récupérer le magasin des pokémons
-
+  import { computed, ref } from 'vue'
   import { usePokemonStore } from '@/stores/pokemonStore'
   import PokemonCard from '@/components/PokemonCard.vue'
 
   const pokemonStore = usePokemonStore()
-
+  const search = ref('')
+  // recherche dynamique
+  const filteredPokemons = computed(() => {
+    const query = search.value.toLowerCase().trim()
+    return pokemonStore.pokemons.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(query)
+    )
+  })
 </script>
 
 <style>
