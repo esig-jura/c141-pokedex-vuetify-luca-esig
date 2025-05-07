@@ -9,10 +9,16 @@
       prepend-icon="mdi-magnify"
     />
 
+    <!-- Affichage du message si aucun Pokémon trouvé -->
+    <v-alert v-if="filteredPokemons.length === 0" class="text-center mt-4" type="warning">
+      Aucun Pokémon ne correspond à votre recherche.
+    </v-alert>
+
     <v-row>
       <!-- Exemple de colonne vide (à dupliquer plus tard avec du contenu) -->
       <v-col
-        v-for="pokemon in pokemonStore.pokemons"
+
+        v-for="pokemon in filteredPokemons"
         :key="pokemon.id"
         cols="12"
         lg="3"
@@ -21,6 +27,7 @@
         xl="2"
       >
         <PokemonCard :pokemon="pokemon" />  <!-- reprends la v card  qu il faut importer dans le scirpt -->
+
       </v-col>
 
     </v-row>
