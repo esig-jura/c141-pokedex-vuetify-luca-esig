@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <router-link class="text-decoration-none" :to="`/pokemons/${pokemon.id}`">
+  <router-link class="text-decoration-none" :to="`/pokemons/${pokemon.id}`"> <!-- router link permets de rendre la carte clicable et renvoie vers l id du pokémon cliqué, sinon :to= "x" peut aussi amrcher -->
     <v-card class="pa-2" elevation="2">
       <v-img
         alt="Magicarpe"
