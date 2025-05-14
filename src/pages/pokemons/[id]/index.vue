@@ -1,6 +1,8 @@
 <script setup>
   import { useRoute } from 'vue-router'
   import { usePokemonStore } from '@/stores/pokemonStore'
+  import PokemonTypesChips from '@/components/PokemonTypesChips.vue'
+  import PokemonStats from '@/components/PokemonStats.vue'
 
   const route = useRoute()
   const pokemonStore = usePokemonStore()
@@ -27,6 +29,8 @@
         <!-- Les types et stats seront ajoutés dans les chapitres suivants -->
 
         <p class="mt-6 text-body-1">{{ pokemon.description }}</p>
+        <PokemonTypesChips class="mt-4" :pokemon="pokemon" />
+        <PokemonStats class="mt-6" :stats="pokemon.stats" />
 
         <v-btn
           class="mt-8"
@@ -46,6 +50,7 @@
       Pokémon introuvable.
     </v-alert>
   </v-container>
+
 </template>
 
 <style scoped>
