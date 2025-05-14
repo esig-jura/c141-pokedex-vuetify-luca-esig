@@ -10,6 +10,7 @@
         * @click : navigation vers la page de création
       -->
       <v-btn
+        v-if="authStore.isAuthenticated"
         v-tooltip.bottom="'Ajouter un Pokémon'"
         aria-label="Ajouter un Pokémon"
         class="ml-4"
@@ -73,7 +74,9 @@
   import { computed, ref } from 'vue'
   import { usePokemonStore } from '@/stores/pokemonStore'
   import PokemonCard from '@/components/PokemonCard.vue'
+  import { useAuthStore } from '@/stores/authStore'
 
+  const authStore = useAuthStore()
   const pokemonStore = usePokemonStore()
   const search = ref('')
   // recherche dynamique

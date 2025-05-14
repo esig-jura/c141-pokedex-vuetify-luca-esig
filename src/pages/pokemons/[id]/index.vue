@@ -7,6 +7,7 @@
   const route = useRoute()
   const pokemonStore = usePokemonStore()
   const pokemon = pokemonStore.getPokemonById(route.params.id)
+  // coalescence ?
 </script>
 
 <template>
