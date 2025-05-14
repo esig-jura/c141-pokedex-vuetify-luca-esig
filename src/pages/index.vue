@@ -1,6 +1,23 @@
 <template>
   <v-container>
-    <h1 class="mb-6 text-center">Pokédex</h1>
+    <h1 class="mb-6 text-center">
+      Pokédex
+
+      <!--
+      bouton pour ajouter un pokémon
+        * aria-label : accessibilité pour les lecteurs d'écran
+        * v-tooltip : info-bulle au survol
+        * @click : navigation vers la page de création
+      -->
+      <v-btn
+        v-tooltip.bottom="'Ajouter un Pokémon'"
+        aria-label="Ajouter un Pokémon"
+        class="ml-4"
+        color="primary"
+        icon="mdi-plus"
+        @click="$router.push('pokemons/create')"
+      />
+    </h1>
 
     <!-- Menu déroulant pour choisir l'ordre de tri -->
     <!-- Ligne contenant uniquement le menu de tri -->
